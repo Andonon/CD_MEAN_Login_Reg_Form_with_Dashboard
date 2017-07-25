@@ -1,0 +1,40 @@
+<div id="wrapper">
+  <h3>Login / Register for MyApp</h3>
+  <div id="registerform">
+    <form (submit)="register()" #registerForm='ngForm'>
+      <h1>Register</h1>
+      <label for="firstname">First Name:</label>
+      <input type="text" name="firstname" required maxlength='50' placeholder='max 50 chars' [(ngModel)]="new_user.firstname" #firstname='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!firstname.valid && firstname.dirty'>
+          <i>First Name is required.</i></span>
+      <label for="lastname">Last Name:</label>
+      <input type="text" name="lastname" required maxlength='50' placeholder='max 50 chars' [(ngModel)]="new_user.lastname" #lastname='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!lastname.valid && lastname.dirty'>
+          <i>Last Name is required</i></span>
+      <label for="email">Email Address:</label>
+      <input type="text" name="email" required placeholder="valid email required" pattern='([a-zA-Z0-9\-\_\"]+)([\_\.\-\+{1}])?([a-zA-Z0-9\-\"\_]+)\@([a-zA-Z0-9\[]+)([\-])?([a-zA-Z0-9]+)?([\.])([a-zA-Z0-9\.\]]+)$' [(ngModel)]="new_user.email" #email='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!email.valid && email.dirty'>
+          <i>Email is required and must be correct format</i></span>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required minlength='8' maxlength='50' placeholder="min 8 chars, max 50" [(ngModel)]="new_user.password" #password='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!password.valid && password.dirty'>
+          <i>Password is required and must be at least 8 characters</i></span>
+      <label for="cpassword">Confirm Password:</label>
+      <input type="password" name="cpassword" required [pattern]=new_user.password 
+        placeholder="passwords must match" [(ngModel)]="new_user.cpassword" #cpassword='ngModel'><br><br>
+          <span class="formerrors" *ngIf='!cpassword.valid && cpassword.dirty'>
+          <i>Passwords must match</i></span>
+      <input [disabled]='!registerForm.valid' type="submit" Value="Register and Login"><br><br>
+    </form><br><br>
+  </div>
+  <div id='loginform'>
+    <form (submit)="login()" #loginForm='ngForm'>
+      <h1>Login</h1>
+      <label for="email">Email Address:</label>
+      <input type="text" name="email" autofocus [(ngModel)]="user.email" #email='ngModel'><br><br>
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="user.password" #password='ngModel'><br><br>
+      <input type="submit" Value="Login">
+    </form>
+  </div>  
+</div>

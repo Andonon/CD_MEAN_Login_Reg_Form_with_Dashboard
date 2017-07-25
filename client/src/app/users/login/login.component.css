@@ -1,0 +1,24 @@
+#wrapper {
+    width: 900px;
+}
+#registerform {
+    display: inline-block;
+    width: 350px;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+
+}
+#loginform {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+
+}
+.formerrors {
+    font-size: .8em;
+    color: red;
+}
